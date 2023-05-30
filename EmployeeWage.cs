@@ -8,60 +8,42 @@ namespace EmployeeWageComputation
 {
     
      public class Employee {
-        public const byte FULL_TIME = 1;
-        public const byte PART_TIME = 2;
-        public const byte FULL_WORKING_HOURS = 8;
-        public const byte PART_WORKING_HOURS = 4;
-        public const int WAGE_PER_HOUR = 20;
-        public const byte WORKING_DAYS_PER_MONTH = 20;
-        public static void Welcome()
+        public const int IS_PART_TIME = 1;
+        public const int IS_FULL_TIME = 2;
+        public const int Emp_Rate_Per_Hr = 20;
+        public void EmpWageSwitch()
         {
-            Console.WriteLine("Welcome to Employee Wage Problem");
-        }
-        public static int ValidateAttendance()
-        {
-            Random objectOfRandom = new Random();
-            int attendance = objectOfRandom.Next(0, 3);
 
-            if (attendance == FULL_TIME)
+            
+            int empHrs = 0;
+            int empWage = 0;
+
+            
+            Random random = new Random();
+           
+            int empCheck = random.Next(0, 3);
+
+            switch (empCheck)
             {
-                Console.WriteLine("Employee is present");
-                return FULL_TIME;
+                case IS_PART_TIME:
+                    empHrs = 4;
+                    break;
+
+                case IS_FULL_TIME:
+                    empHrs = 8;
+                    break;
+
+                default:
+                    empHrs = 0;
+                    break;
             }
-            else if (attendance == PART_TIME)
-            {
-                Console.WriteLine("Employee is PartTime Present");
-                return PART_TIME;
-            }
-            else
-            {
-                Console.WriteLine("Employee is Absent");
-                return 0;
-            }
+            empWage = empHrs * Emp_Rate_Per_Hr;
+
+            Console.WriteLine("Emp Wage :" + empWage);
         }
-        public int DailyWage()
-        {
-            int employeeHours;
-            int employeeCheck = ValidateAttendance();
-            if (employeeCheck == FULL_TIME)
-                employeeHours = FULL_WORKING_HOURS;
-            else if (employeeCheck == PART_TIME)
-                employeeHours = PART_WORKING_HOURS;
-            else
-                employeeHours = 0;
-
-            int dailyWage = employeeHours * WAGE_PER_HOUR;
-
-            Console.WriteLine($"Wage : {dailyWage}");
-            return dailyWage;
-        }
-
-        public void PartTime()
-        {
-            int employeeCheck = DailyWage();
-        }
-
     }
 }
+
+
 
 

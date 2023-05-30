@@ -6,9 +6,9 @@ namespace EmployeeWageusingOOPs
     {
         static void Main(string[] args)
         {
-            Employee employeeWage = new Employee();
-            Employee.Welcome();
-            employeeWage.PartTime();
+            Console.WriteLine("Welcome to Employee Wage Computation Problem");
+            Employee emp = new Employee();
+            emp.EmpWageSwitch();
         }
     }
 }
