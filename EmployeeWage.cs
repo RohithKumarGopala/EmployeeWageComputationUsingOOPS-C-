@@ -8,38 +8,36 @@ namespace EmployeeWageComputation
 {
     
      public class Employee {
-            public const byte FULL_TIME = 1;
-            public const byte PART_TIME = 2;
-            public const byte FULL_WORKING_HOURS = 8;
-            public const byte PART_WORKING_HOURS = 4;
-            public const int WAGE_PER_HOUR = 20;
-            public const byte WORKING_DAYS_PER_MONTH = 20;
-            public static void Welcome()
-            {
-                Console.WriteLine("Welcome to Employee Wage Problem");
-            }
-            public static int ValidateAttendance()
-            {
-                Random objectOfRandom = new Random();
-                int attendance = objectOfRandom.Next(0, 3);
+        public void EmpDailyWage()
+        {
+            //define constants
+            int IS_FULL_TIME = 1;
+            int Emp_Rate_Per_Hr = 20;
 
-                if (attendance == FULL_TIME)
-                {
-                    Console.WriteLine("Employee is present");
-                    return FULL_TIME;
-                }
-                else if (attendance == PART_TIME)
-                {
-                    Console.WriteLine("Employee is PartTime Present");
-                    return PART_TIME;
-                }
-                else
-                {
-                    Console.WriteLine("Employee is Absent");
-                    return 0;
-                }
+            //variables
+            int empHrs = 0;
+            int empWage = 0;
+
+            //random function is to create random numbers
+            Random random = new Random();
+            //
+            int empCheck = random.Next(0, 2);
+            //use if else statement to check if employee is present or absent
+
+            if (empCheck == IS_FULL_TIME)
+            {
+                empHrs = 8;
+                Console.WriteLine("Employee is Present");
             }
+            else
+            {
+                empHrs = 0;
+                Console.WriteLine("Employee is Absent");
+            }
+            empWage = empHrs * Emp_Rate_Per_Hr;
+            Console.WriteLine("Emp Wage :" + empWage);
         }
     }
-   
+}
+
 

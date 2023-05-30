@@ -6,9 +6,9 @@ namespace EmployeeWageusingOOPs
     {
         static void Main(string[] args)
         {
-            Employee employeeWage = new Employee();
-            Employee.Welcome();
-            Employee.ValidateAttendance();
+            Console.WriteLine("Welcome to Employee Wage Computation Program");
+            Employee emp = new Employee();
+            emp.EmpDailyWage();
         }
     }
 }
